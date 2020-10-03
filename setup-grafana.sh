@@ -99,7 +99,7 @@ curl -k -H "Content-Type: application/json" -u admin:admin "${grafana_host}/api/
 dashboard_file="./openshift-cluster-monitoring.json"
 sed -i.bak "s/Xs/${graph_granularity}/" "${dashboard_file}"
 sed -i.bak "s/\${DS_PR}/${datasource_name}/" "${dashboard_file}"
-curl -H "Content-Type: application/json" -u admin:admin "${grafana_host}/api/dashboards/db" -X POST -d "@${dashboard_file}"
+curl -H "Content-Type: application/json" -u admin:admin "${grafana_host}/api/dashboards/db" -X POST -d "@${dashboard_file}" -k
 mv "${dashboard_file}.bak" "${dashboard_file}"
 
 ((node_exporter)) && node::exporter || echo "skip node exporter"
