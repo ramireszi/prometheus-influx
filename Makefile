@@ -26,4 +26,4 @@ deploy_node_exporter:
 
 init: create_project
 
-all: init deploy_influx deploy_storage_adapter deploy_prometheus deploy_node_exporter
+all: init deploy_influx deploy_storage_adapter deploy_prometheus deploy_node_exporter deploy_grafana
